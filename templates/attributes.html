@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <b>Dostępne punkty - </b><b id="attrPoints">{{points}}</b>
+<table>
+    <tr>
+        <form method="POST">
+        <td>
+            <span class="atrrLabel">Żywotność - </span>
+        </td>
+        <td>
+            <button class="attrBtn" type="submit" value="down" name="action">
+            <img class="arrow" id="vitalityD" src="{{url_for('static', filename='img/interface/arrL.svg')}}">
+            </button>
+        </td>
+        <td>
+            <span class="number">{{attributes['vitality']}}</span>
+        </td>
+        <td>
+            <input type="hidden" name="attr" value="vitality">
+        </td>
+        <td>
+            <button class="attrBtn" type="submit" value="up" name="action">
+                 <img class="arrow" src="{{url_for('static', filename='img/interface/arrR.svg')}}">
+            </button>
+        </td>
+        </form>
+    </tr>
+    <tr>
+        <form method="POST">
+        <td>
+            <span class="atrrLabel">Siła - </span>
+        </td>
+        <td>
+            <button class="attrBtn" type="submit" value="down" name="action">
+            <img class="arrow" id="strengthD" src="{{url_for('static', filename='img/interface/arrL.svg')}}">
+            </button>
+        </td>
+        <td>
+            <span class="number">{{attributes['strength']}}</span>
+        </td>
+        <td>
+            <input type="hidden" name="attr" value="strength">
+        </td>
+        <td>
+           <button class="attrBtn" type="submit" value="up" name="action">
+                 <img class="arrow" src="{{url_for('static', filename='img/interface/arrR.svg')}}">
+           </button>
+        </td>
+        </form>
+    </tr>
+    <tr>
+        <form method="POST">
+        <td>
+            <span class="atrrLabel">Zwinność - </span>
+        </td>
+        <td>
+            <button class="attrBtn" type="submit" value="down" name="action">
+            <img class="arrow" src="{{url_for('static', filename='img/interface/arrL.svg')}}">
+            </button>
+        </td>
+        <td>
+            <span class="number">{{attributes['agility']}}</span>
+        </td>
+        <td>
+            <input type="hidden" name="attr" value="agility">
+        </td>
+        <td>
+            <button class="attrBtn" type="submit" value="up" name="action">
+                 <img class="arrow" src="{{url_for('static', filename='img/interface/arrR.svg')}}">
+            </button>
+        </td>
+        </form>
+    </tr>
+    <tr>
+        <form method="POST">
+        <td>
+            <span class="atrrLabel">Wytrzymałość - </span>
+        </td>
+        <td>
+            <button class="attrBtn" type="submit" value="down" name="action">
+            <img class="arrow" src="{{url_for('static', filename='img/interface/arrL.svg')}}">
+            </button>
+        </td>
+        <td>
+            <span class="number">{{attributes['stamina']}}</span>
+        </td>
+        <td>
+            <input type="hidden" name="attr" value="stamina">
+        </td>
+        <td>
+            <button class="attrBtn" type="submit" value="up" name="action">
+                 <img class="arrow" src="{{url_for('static', filename='img/interface/arrR.svg')}}">
+            </button>
+        </td>
+        </form>
+    </tr>
+    <tr>
+        <form method="POST">
+        <td>
+            <span class="atrrLabel">Obrona - </span>
+        </td>
+        <td>
+            <button class="attrBtn" type="submit" value="down" name="action">
+            <img class="arrow" src="{{url_for('static', filename='img/interface/arrL.svg')}}">
+            </button>
+        </td>
+        <td>
+            <span class="number">{{attributes['defence']}}</span>
+        </td>
+        <td>
+            <input type="hidden" name="attr" value="defence">
+        </td>
+        <td>
+            <button class="attrBtn" type="submit" value="up" name="action">
+                 <img class="arrow" src="{{url_for('static', filename='img/interface/arrR.svg')}}">
+            </button>
+        </td>
+        </form>
+    </tr>
+</table>
+<div id="menu">
+    <a class="menuBtn" href="/edit-player?player={{player}}">Zatwierdź</a>
+</div>
+
+
+
+{% endblock content %}

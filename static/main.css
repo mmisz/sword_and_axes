@@ -1,0 +1,175 @@
+body{
+    font-family: sans-serif;
+}
+#container{
+    width:960px;
+    margin:0 auto;
+    background-color: cornsilk;
+    border: 3px solid;
+    border-radius: 10px;
+    padding: 15px;
+}
+h1{
+
+}
+#titleBlock{
+    text-align: center;
+}
+.inlineDiv{
+     box-sizing: border-box;
+    height: 250px;
+}
+.inlineDiv * {
+    display: inline-block;
+    height:250px;
+}
+
+#menu{
+    box-sizing: border-box;
+    width:300px;
+    margin: 0 auto;
+    text-align: left;
+    list-style-type: none;
+}
+#menu li{
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+#menu a{
+    background-color: lightgray;
+    border: 3px solid black;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+.menuBtn{
+    background-color: lightgray;
+    border: 3px solid black;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+.menuBtn:hover{
+    background-color: seashell;
+    font-weight: bold;
+}
+#menu a:hover{
+    background-color: seashell;
+    font-weight: bold;
+}
+#mainH{
+    text-align: center;
+}
+.arrow{
+
+}
+.arrow:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.number{
+    text-align: center;
+}
+.attrBtn{
+    background-color: transparent;
+    border:none;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 1.1fr 1.4fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "lHair character character rHairr"
+    "lEyes character character rEyes"
+    "lBear character character rBear"
+    "lBody character character rBody";
+}
+.character {
+    grid-area: character;
+    position: relative;
+}
+.lHair {
+    grid-area: lHair;
+}
+.rHairr {
+    grid-area: rHairr;
+    text-align: right;
+}
+.rEyes {
+    grid-area: rEyes;
+    text-align: right;
+}
+.lEyes {
+    grid-area: lEyes;
+}
+.lBeard {
+    grid-area: lBear;
+}
+.rBeard {
+    grid-area: rBear;
+    text-align: right;
+}
+.lBody {
+    grid-area: lBody;
+}
+.rBody {
+    grid-area: rBody;
+    text-align: right;
+}
+.character-body{
+    position: relative;
+    bottom: 0%;
+    z-index: 0;
+}
+.cloth{
+    position: absolute;
+    bottom: 0%;
+    z-index: 0;
+}
+.face{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    z-index: 0;
+}
+.hair{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    z-index: 2;
+}
+.beard{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    z-index: 1;
+}
+.hands{
+    position: absolute;
+    bottom: 0%;
+    z-index: 0;
+}
+.weapon{
+    position: absolute;
+    bottom: 0%;
+    z-index: 0;
+}
+.shield{
+    position: absolute;
+    bottom: 0%;
+    z-index: 1;
+}
+.helmet{
+    position: absolute;
+    bottom: 0%;
+    z-index: 2;
+}
+.character div{
+    width:inherit;
+}
+.character img{
+    width:inherit;
+}

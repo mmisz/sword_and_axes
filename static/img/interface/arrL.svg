@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="80"
+   height="20"
+   viewBox="0 0 21.166666 5.2916668"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="arrL.svg"
+   inkscape:export-filename="D:\niebezpieczenstwo\EPI\Rok III\Interfejsy - projekt\miecze_i_topory\static\img\arrL.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.2"
+     inkscape:cx="32.975599"
+     inkscape:cy="28.141076"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-291.70833)">
+    <path
+       style="opacity:1;fill:#333331;fill-opacity:1;stroke:none;stroke-width:0.0849058;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 10.426083,292.68775 H 8.221124 c -4.044093,0 -6.354867,1.25546 -7.29980702,1.74437 0.90950502,0.48892 3.25571402,1.74438 7.29980702,1.74438 h 2.204959 c 4.044093,0 7.299807,-0.778 7.299807,-1.74438 0,-0.96638 -3.255714,-1.74437 -7.299807,-1.74437 z"
+       id="rect1564"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="sscssss" />
+    <rect
+       style="opacity:1;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.11982525;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1569"
+       width="7.2997985"
+       height="3.4606059"
+       x="-17.725882"
+       y="292.68777"
+       ry="1.4029512"
+       rx="0"
+       transform="scale(-1,1)" />
+    <rect
+       style="opacity:1;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.065;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1571"
+       width="0.87406993"
+       height="5.1971726"
+       x="-18.111158"
+       y="291.75092"
+       ry="0.43703496"
+       transform="scale(-1,1)" />
+    <rect
+       style="opacity:1;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.065;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1573"
+       width="4.275856"
+       height="1.1811756"
+       x="-20.568003"
+       y="293.82977"
+       ry="0.4370361"
+       transform="scale(-1,1)" />
+    <rect
+       style="opacity:1;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.065;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1575"
+       width="0.87406993"
+       height="2.126116"
+       x="-20.851484"
+       y="293.38095"
+       ry="0.43703496"
+       transform="scale(-1,1)" />
+  </g>
+</svg>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="300"
+   height="450"
+   viewBox="0 0 79.374998 119.06251"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="weapon4.svg"
+   inkscape:export-filename="D:\niebezpieczenstwo\EPI\Rok III\Interfejsy - projekt\miecze_i_topory\static\img\items\weapons\weapon4.png"
+   inkscape:export-xdpi="158"
+   inkscape:export-ydpi="158">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2"
+     inkscape:cx="75.850871"
+     inkscape:cy="209.49977"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:snap-global="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-177.93746)">
+    <path
+       sodipodi:nodetypes="ccscscscsscsscc"
+       inkscape:connector-curvature="0"
+       id="path6465-6"
+       d="m 7.30915,192.64464 c -0.3750202,2.8971 -0.6083053,10.11581 -0.032728,16.59554 0.1566282,0.97831 0.453964,1.79498 0.5782342,2.71094 1.8225847,13.43365 0.1086822,28.06213 0.3899029,41.47679 -0.1628019,12.92187 1.7389166,28.04099 0.8335505,38.17273 -0.08679,0.97128 -0.1179641,1.4917 -5.754e-4,2.02956 1.6528918,1.46178 3.3404868,0.69168 4.9827888,-0.41643 0.172458,-0.11648 0.394402,-0.51988 0.56714,-0.6384 0.187018,-1.4108 0.08334,-3.47703 -0.117987,-5.18207 -0.175912,-1.49329 -0.873319,-2.65692 -1.009386,-4.21321 -1.259592,-14.40683 -1.556766,-31.12833 -0.741183,-48.63061 0.451632,-10.16893 0.209882,-19.82749 -0.490204,-29.61129 -0.20062,-2.80376 -0.488253,-5.53464 -0.530373,-8.60558 -0.01603,-1.16937 -0.160705,-2.33429 -0.242454,-3.51465 z"
+       style="fill:#a05a2c;stroke:none;stroke-width:0.1534549;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="cccccccc"
+       inkscape:connector-curvature="0"
+       id="path6420-8"
+       d="m 5.7262633,200.21445 7.1912197,-0.34438 c 0.03861,-0.0641 0.304216,0.21087 0.316908,-1.07342 3.182437,3.60292 3.508948,4.64804 5.598121,7.18637 2.725046,-6.12817 2.766834,-10.78205 -0.540598,-16.71512 -0.557977,0.63018 -0.390296,0.61046 -4.709729,4.81969 l -8.2132659,0.26563 c -0.2794927,1.90991 -3.02e-5,3.88129 0.3573448,5.86125 z"
+       style="fill:#787878;fill-opacity:1;stroke:none;stroke-width:0.11232049;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

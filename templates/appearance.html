@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="grid-container">
+        <div class="character">
+            <div class="character-body">
+                <img src="{{ url_for('static', filename='img/character/body' + appearance['body']|string + '.png') }}">
+            </div>
+            <div class="hair">
+                <img src="{{ url_for('static', filename='img/character/hair' + appearance['hair']|string + '.png') }}">
+            </div>
+            <div class="beard">
+                <img src="{{ url_for('static', filename='img/character/beard' + appearance['beard']|string + '.png') }}">
+            </div>
+            <div class="face">
+                <img src="{{ url_for('static', filename='img/character/face' + appearance['face']|string + '.png') }}">
+            </div>
+            <div class="cloth">
+                <img src="{{ url_for('static', filename='img/items/armor/cloth0.png') }}">
+            </div>
+        </div>
+            <div class="lHair">
+                <button class="attrBtn" type="submit" value="down" name="action" form="hair-form">
+                    <img class="arrow" src="{{ url_for('static', filename='img/interface/arrL.svg') }}">
+                </button>
+            </div>
+            <div class="rHairr">
+                <button class="attrBtn" type="submit" value="up" name="action" form="hair-form">
+                    <img class="arrow" src="{{ url_for('static', filename='img/interface/arrR.svg') }}">
+                </button>
+            </div>
+            <div class="rEyes">
+                <button class="attrBtn" type="submit" value="up" name="action" form="face-form">
+                    <img class="arrow" src="{{ url_for('static', filename='img/interface/arrR.svg') }}">
+                </button>
+            </div>
+            <div class="lEyes">
+                <button class="attrBtn" type="submit" value="down" name="action" form="face-form">
+                    <img class="arrow" src="{{ url_for('static', filename='img/interface/arrL.svg') }}">
+                </button>
+            </div>
+            <div class="lBeard">
+                <button class="attrBtn" type="submit" value="down" name="action" form="beard-form">
+                    <img class="arrow" src="{{ url_for('static', filename='img/interface/arrL.svg') }}">
+                </button>
+            </div>
+            <div class="rBeard">
+                <button class="attrBtn" type="submit" value="up" name="action" form="beard-form">
+                    <img class="arrow" src="{{ url_for('static', filename='img/interface/arrR.svg') }}">
+                </button>
+            </div>
+            <div class="lBody">
+                <button class="attrBtn" type="submit" value="down" name="action" form="body-form">
+                    <img class="arrow" src="{{ url_for('static', filename='img/interface/arrL.svg') }}">
+                </button>
+            </div>
+            <div class="rBody">
+                <button class="attrBtn" type="submit" value="up" name="action" form="body-form">
+                    <img class="arrow" src="{{ url_for('static', filename='img/interface/arrR.svg') }}">
+                </button>
+            </div>
+
+
+    </div>
+    <form method="POST" id="body-form"><input type="hidden" name="part" value="body"></form>
+    <form method="POST" id="hair-form"><input type="hidden" name="part" value="hair"></form>
+    <form method="POST" id="beard-form"><input type="hidden" name="part" value="beard"></form>
+    <form method="POST" id="face-form"><input type="hidden" name="part" value="face"></form>
+
+    <a class="menuBtn" href="/edit-player?player={{player}}">Zatwierdź</a>
+
+
+{% endblock content %}

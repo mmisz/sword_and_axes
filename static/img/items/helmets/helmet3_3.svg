@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="300"
+   height="472"
+   viewBox="0 0 79.374998 124.88327"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="helmet3_3.svg"
+   inkscape:export-filename="D:\niebezpieczenstwo\EPI\Rok III\Interfejsy - projekt\miecze_i_topory\static\img\items\helmets\helmet3.png"
+   inkscape:export-xdpi="158"
+   inkscape:export-ydpi="158">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="-85.636984"
+     inkscape:cy="277.21748"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:snap-global="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-172.1167)">
+    <path
+       style="opacity:1;fill:#916f6f;fill-opacity:1;stroke:none;stroke-width:6.79999971;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 53.320269,192.83174 c -3.801053,8.15256 -5.672368,-7.39306 -13.630745,-7.41673 -7.592152,-0.0226 -11.164584,16.07871 -13.497111,8.21854 -2.236144,-7.53538 5.231015,-15.70208 13.497111,-15.70208 8.266096,0 16.952204,7.77636 13.630745,14.90027 z"
+       id="path830"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="sssss" />
+    <path
+       style="opacity:1;fill:#916f6f;fill-opacity:1;stroke:none;stroke-width:7.38669062;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 30.658632,197.41456 c 1.382821,4.12906 7.366858,6.55234 2.419539,7.64548 -1.657524,0.36624 -4.0355,-2.3712 -5.41832,-6.50026 -1.382826,-4.12907 -1.198958,-7.91333 0.410677,-8.4524 1.609635,-0.53907 1.205282,3.17811 2.588104,7.30718 z"
+       id="path833"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="sssss" />
+    <path
+       style="opacity:1;fill:#916f6f;fill-opacity:1;stroke:none;stroke-width:7.38669062;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 48.606183,197.71587 c -1.970602,3.88305 -8.244221,5.40709 -3.5094,7.21053 1.58633,0.60421 4.338343,-1.75689 6.308944,-5.63993 1.97061,-3.88306 2.340977,-7.65364 0.827246,-8.42184 -1.513731,-0.76821 -1.656185,2.96819 -3.62679,6.85124 z"
+       id="path833-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="sssss" />
+    <rect
+       style="opacity:1;fill:#916f6f;fill-opacity:1;stroke:none;stroke-width:6.79999971;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect853"
+       width="10.289877"
+       height="0.8018086"
+       x="34.344131"
+       y="203.05479"
+       ry="0.22934349" />
+  </g>
+</svg>

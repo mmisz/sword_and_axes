@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="menu">
+    <form method="POST">
+        <ul style="list-style-type: none">
+            <li>Twoje imię - {{ name }}</li>
+            <li><input type="text" name="name"></li>
+            <li>
+                <a href="/edit-player?player={{ player }}">Powrót</a>
+                <input class="menuBtn" type="submit" value="Zatwierdź">
+            </li>
+        </ul>
+
+</form>
+</div>
+
+
+
+{% endblock content %}

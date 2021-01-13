@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="menuContainer">
+<ul id="menu">
+    <li><a href="/name?player={{player}}">Edytuj imię</a></li>
+    <li><a href="/attributes?player={{player}}">Edytuj atrybuty</a></li>
+    <li><a href="/appearance?player={{player}}">Edytuj wygląd</a></li>
+    <li><a href="/items?player={{player}}">Wybierz przedmioty</a></li>
+    <li><a href="/hotseat">Powrót</a></li>
+</ul>
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="menuContainer">
+<div id="titleBlock">
+   <img src="{{url_for('static', filename='img/logo.svg')}}" alt="logo"/>
+</div>
+<ul id="menu">
+    <li><a href="#">Tryb pojedyńczego gracza</a></li>
+    <li><a href="/hotseat">Gracz kontra Gracz</a></li>
+    <li><a href="#">Multiplayer</a></li>
+    <li><a href="/manual">Instrukcja</a></li>
+</ul>
+</div>
+{% endblock content %}

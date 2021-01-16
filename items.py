@@ -1,3 +1,4 @@
+
 class Item:
     def __init__(self, name: str, price: int, id: int, itemType: str):
         self.name = name
@@ -55,7 +56,7 @@ def makeHelmet():
 def makeWeapon():
     weapons = list()
     names = ['nic', 'żelazny sztylet', 'żelazny miecz', 'żelazny topór', 'żelazny dun',
-             'maczuga', 'stalowy miecz', 'stalowy topór', 'stalowy dun'
+             'maczuga', 'stalowy miecz', 'stalowy topór', 'stalowy dun',
              'buława', 'miecz jarla', 'topór jarla', 'dun jarla',
              'damasceński sztylet']
     prices = [0, 2, 4, 5, 6,
@@ -70,7 +71,7 @@ def makeWeapon():
                        2, 3, 4, 0]
 
     for i in range(len(names)):
-        weapon = Weapon(names[i], prices[i], damages[i], i + 1, weaponClasses[giveWeaponClass[i]], 'weapon')
+        weapon = Weapon(names[i], prices[i], damages[i], i, weaponClasses[giveWeaponClass[i]], 'weapon')
         weapons.append(weapon)
     return weapons
 def makeShield():

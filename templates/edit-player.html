@@ -6,7 +6,13 @@
     <li><a href="/attributes?player={{player}}">Edytuj atrybuty</a></li>
     <li><a href="/appearance?player={{player}}">Edytuj wygląd</a></li>
     <li><a href="/items?player={{player}}">Wybierz przedmioty</a></li>
+    {% if status == 0 %}
+    <li><button class="menuBtn" type="submit" form="status" name="status" value="yes">Zatwierdź</button></li>
+    {% else %}
+    <li><button class="menuBtn" type="submit" form="status" name="status" value="no">Anuluj</button></li>
+    {% endif %}
     <li><a href="/hotseat">Powrót</a></li>
 </ul>
+<form method="POST" id="status"></form>
 </div>
 {% endblock content %}

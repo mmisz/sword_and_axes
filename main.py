@@ -1,13 +1,17 @@
+from typing import List
+
 from flask import Flask, render_template, url_for, request, redirect
 import classes
 
 import sys
 
+from classes import Viking
+
 app = Flask(__name__)
 
 global hotSeatPlayers
-hotSeatPlayers = [classes.Viking(), classes.Viking()]
-
+hotSeatPlayers: List[Viking] = [classes.Viking(), classes.Viking()]
+hotSeatStatus = [0,0]
 
 @app.route('/')
 @app.route('/home')
@@ -22,15 +26,27 @@ def about():
 
 @app.route('/hotseat', methods=['GET', 'POST'])
 def hotseat():
-    return render_template('hotseat.html', h1='Gracz kontra Gracz')
-
+    if request.method == 'POST':
+        form = request.form
+        if form['action'] == 'fight' and hotSeatStatus==[1, 1]:
+            return redirect("/pvp")
+    return render_template('hotseat.html', h1='Gracz kontra Gracz', status=hotSeatStatus)
+@app.route('/pvp')
+def pvp():
+    return render_template('pvp.html', h1='Walka')
 
 @app.route('/edit-player', methods=['GET', 'POST'])
 def edit_player():
     player = request.args.get('player', None)
-    playerNumber = int(player)
+    playerNumber = int(player)-1
+    if request.method == 'POST':
+        form = request.form
+        if form['status'] == "yes":
+            hotSeatStatus[playerNumber] = 1
+        elif form['status'] == "no":
+            hotSeatStatus[playerNumber] = 0
     # print(playerNumber, file=sys.stderr)
-    return render_template('edit-player.html', h1='Dostosuj postać', player=playerNumber)
+    return render_template('edit-player.html', h1='Dostosuj postać', player=playerNumber + 1, status=hotSeatStatus[playerNumber])
 
 
 @app.route('/name', methods=['GET', 'POST'])
@@ -87,8 +103,35 @@ def items():
     player = request.args.get('player', None)
     playerNumber = int(player) - 1
     viking = hotSeatPlayers[playerNumber]
+    armoury = classes.Armoury()
+    items = armoury.getItems()
     if request.method == 'POST':
         form = request.form
-    return render_template('items.html', h1='Wybierz ekwipunek', appearance=viking.appearance, eq=viking.eq, player=playerNumber + 1, items=classes.Armoury)
+        if form['itemType'] == 'hPotions':
+            if form['action'] == 'more':
+                viking.morePotion("hPotions")
+            else:
+                viking.lessPotion("hPotions")
+        elif form['itemType'] == 'sPotions':
+            if form['action'] == 'more':
+                viking.morePotion("sPotions")
+            else:
+                viking.lessPotion("sPotions")
+        else:
+            item = form['number']
+            itemType = form['itemType']
+            if itemType == "weapon":
+                if armoury.getItem(itemType, int(item)).wClass == "tHanded" and viking.eq['shield'] != 0:
+                    pass
+                else:
+                    viking.changeItem(itemType, item)
+            elif itemType == "shield":
+                if armoury.getItem("weapon", viking.eq['weapon']).wClass == "tHanded":
+                    pass
+                else:
+                    viking.changeItem(itemType, item)
+            else:
+                viking.changeItem(itemType, item)
+    return render_template('items.html', h1='Wybierz ekwipunek', appearance=viking.appearance, eq=viking.eq, player=playerNumber + 1, items=items)
 if __name__ == '__main__':
     app.run(debug=True)

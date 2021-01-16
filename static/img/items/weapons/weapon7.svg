@@ -10,13 +10,13 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="300"
-   height="472"
-   viewBox="0 0 79.374998 124.88327"
+   height="450"
+   viewBox="0 0 79.374998 119.06251"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="helmet1.svg"
-   inkscape:export-filename="D:\niebezpieczenstwo\EPI\Rok III\Interfejsy - projekt\miecze_i_topory\static\img\items\helmets\helmet1.png"
+   sodipodi:docname="weapon7.svg"
+   inkscape:export-filename="D:\niebezpieczenstwo\EPI\Rok III\Interfejsy - projekt\miecze_i_topory\static\img\items\weapons\weapon7.png"
    inkscape:export-xdpi="158"
    inkscape:export-ydpi="158">
   <defs
@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="149.8891"
-     inkscape:cy="350.9322"
+     inkscape:zoom="1.4"
+     inkscape:cx="40.488377"
+     inkscape:cy="155.61634"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -49,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -57,18 +57,18 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-172.1167)">
+     transform="translate(0,-177.93746)">
     <path
-       style="opacity:1;fill:#483e37;fill-opacity:0.99541285;fill-rule:evenodd;stroke:none;stroke-width:0.30000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 31.467452,194.76781 c -2.491029,6.15449 11.591373,5.71129 17.063679,4.01599 0.121366,-0.0376 2.226141,-1.5035 2.213719,-1.37706 l -1.700893,17.3122 c -0.01242,0.12645 -0.102287,0.22934 -0.229344,0.22934 H 32.034416 c -0.127056,0 -0.217443,-0.10284 -0.229343,-0.22934 l -1.603617,-17.04747 c -0.0119,-0.12649 1.768806,-4.14594 1.265996,-2.90366 z"
-       id="rect816"
+       style="opacity:1;fill:#2b1100;fill-opacity:0.99541285;fill-rule:evenodd;stroke:none;stroke-width:0.18742186;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 49.764948,280.80604 0.266618,-0.45437 c 0.426797,-0.72733 0.144102,-1.65463 -0.633829,-2.07914 L 33.21398,269.4413 3.6192987,253.81663 c -2.3494505,-0.9273 -3.50148517,3.08845 -2.1675557,3.933 7.4631353,3.49237 15.167278,6.50019 22.348582,10.51609 l 7.76566,4.34269 16.024351,8.74425 c 0.777936,0.42451 1.747812,0.18073 2.174612,-0.54662 z"
+       id="rect878"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="sssssssss" />
+       sodipodi:nodetypes="ssscccccss" />
     <path
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#445500;stroke-width:6.80000019;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 51.01252,212.64986 c -4.788078,4.10338 -14.190769,4.2507 -19.150555,-0.0391 5.5077,-1.28193 -5.730242,-20.02687 -1.635059,-27.02236 2.18501,-3.33578 5.743805,-4.41541 9.72989,-6.32054 2.509414,1.63406 6.442712,2.1724 9.045552,5.62855 4.649546,7.15316 -8.762337,23.33655 2.010172,27.75349 z"
-       id="path826"
+       style="opacity:1;fill:#808080;fill-opacity:0.99541285;fill-rule:evenodd;stroke:#adadad;stroke-width:0.31236973;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 45.454673,288.86426 c -2.807841,-7.13725 -0.758023,-5.08581 1.456066,-7.97263 1.761581,-2.9589 0.04313,-0.0723 1.767165,-2.95159 -0.183538,-1.51386 -0.891743,-4.3829 -0.474263,-4.51886 l -6.619042,2.73583 c 2.196492,5.80434 -2.362466,7.04988 -8.444936,4.87409 1.748446,5.41492 8.36135,7.44705 12.314999,7.83315 z"
+       id="rect881"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccc" />
+       sodipodi:nodetypes="cccccccc" />
   </g>
 </svg>

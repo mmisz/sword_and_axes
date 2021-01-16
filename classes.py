@@ -1,12 +1,23 @@
+import sys
+
 import items
 
 class Armoury:
-    armors = items.makeArmor()
-    helmets = items.makeHelmet()
-    weapons = items.makeWeapon()
-    #potions = items.makePotion()
-    shields = items.makeShield()
-    def getItem(self, itemType, id):
+    def __init__(self):
+        self.armors = items.makeArmor()
+        self.helmets = items.makeHelmet()
+        self.weapons = items.makeWeapon()
+        #potions = items.makePotion()
+        self.shields = items.makeShield()
+    def getItems(self):
+        items = [
+            self.armors,
+            self.helmets,
+            self.weapons,
+            self.shields
+        ]
+        return items
+    def getItem(self, itemType: str, id: int):
         if itemType == 'armor':
             return self.armors[id]
         elif itemType == 'helmet':
@@ -32,14 +43,15 @@ class Viking:
             "body": 1
         }
         self.eq = {
-            'gold': 150,
-            'armor': 1,
+            'gold': 30,
+            'armor': 0,
             'helmet': 0,
-            'shield': 1,
-            'weapon': 2,
+            'shield': 0,
+            'weapon': 0,
             'hPotions': 0,
             'sPotions': 0
         }
+        self.armoury = Armoury()
         self.maxHitpoints = 10 + self.attributes['vitality'] + int(self.attributes['strength']/3)
         #self.maxDmg =
 
@@ -89,11 +101,14 @@ class Viking:
         elif self.wClass == 'axe':
             attack += int(viking.getattr('strength')/2)
         return attack'''
-    def changeItem(self, item: int, itemType: str):
-        currentGold = self.eq['gold'] + Armoury.getItem(itemType, self.eq[itemType])
-        price = Armoury.getItem(itemType, item)
-        if currentGold > price:
-            self.eq[itemType] = item
+    def changeItem(self, itemType: str, item):
+        itemId = int(item)
+        currenItem = self.armoury.getItem(itemType, self.eq[itemType])
+        currentGold = self.eq['gold'] + currenItem.price
+        price = self.armoury.getItem(itemType, itemId).price
+        if currentGold >= price:
+            self.eq[itemType] = itemId
+            self.eq['gold'] = currentGold - price
 
     def changeApperiance(self, part, action):
         if action == 'up':
@@ -138,5 +153,15 @@ class Viking:
                     self.setapp('beard', 5)
                 else:
                     self.appD('beard')
+
+    def morePotion(self, type: str):
+        if self.eq['gold'] >= 5:
+            self.eq[type] += 1
+            self.eq["gold"] -= 5
+
+    def lessPotion(self, type: str):
+        if self.eq[type] > 0:
+            self.eq[type] -= 1
+            self.eq["gold"] += 5
 
 

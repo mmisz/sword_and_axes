@@ -2,9 +2,21 @@
 {% block content %}
 <div id="menuContainer">
 <ul id="menu">
-    <li><a href="/edit-player?player=1">Gracz 1</a></li>
-    <li><a href="/edit-player?player=2">Gracz 2</a></li>
-    <li><a href="/home">Powrót</a></li>
+    <li><a href="/edit-player?player=1">Gracz 1</a>
+    {% if status[0] == 1%}
+        <img style="width: 50px;" src="{{url_for('static', filename='img/interface/check.png')}}">
+    {% endif %}
+    </li>
+    <li><a href="/edit-player?player=2">Gracz 2</a>
+    {% if status[1] == 1%}
+        <img style="width: 50px;" src="{{url_for('static', filename='img/interface/check.png')}}">
+    {% endif %}
+    </li>
+    {% if status == [1, 1] %}
+        <li><button class="menuBtn" name="action" value="fight" form="pvp" type="submit">WALKA</button></li>
+    {% endif %}
+<li><a href="/home">Powrót</a></li>
 </ul>
+<form id="pvp" method="POST"></form>
 </div>
 {% endblock content %}

@@ -1,15 +1,23 @@
 {% extends "layout.html" %}
 {% block content %}
-        <div class="character">
+    <h3>Dostępne złoto: {{ eq['gold'] }}</h3>
+    <div class="charackter-items">
+        <div class="character" style="width: 400px;">
             <div class="character-body">
                 <img src="{{ url_for('static', filename='img/character/body' + appearance['body']|string + '.png') }}">
             </div>
+            {% set dangerHelmetsHair = [1, 2, 4] %}
+            {% set dangerHelmetsBeard = [1, 4] %}
+            {% if not eq['helmet'] in dangerHelmetsHair %}
             <div class="hair">
                 <img src="{{ url_for('static', filename='img/character/hair' + appearance['hair']|string + '.png') }}">
             </div>
+            {% endif %}
+            {% if not eq['helmet'] in dangerHelmetsBeard %}
             <div class="beard">
                 <img src="{{ url_for('static', filename='img/character/beard' + appearance['beard']|string + '.png') }}">
             </div>
+            {% endif %}
             <div class="face">
                 <img src="{{ url_for('static', filename='img/character/face' + appearance['face']|string + '.png') }}">
             </div>
@@ -17,7 +25,7 @@
                 <img src="{{ url_for('static', filename='img/items/helmets/helmet' + eq['helmet']|string + '.png') }}">
             </div>
             <div class="cloth">
-                <img src="{{ url_for('static', filename='img/items/armor/cloth' + eq['armor']|string + '.png') }}">
+                <img src="{{ url_for('static', filename='img/items/armors/armor' + eq['armor']|string + '.png') }}">
             </div>
             <div class="weapon">
                 <img src="{{ url_for('static', filename='img/items/weapons/weapon' + eq['weapon']|string + '.png') }}">
@@ -26,10 +34,110 @@
                 <img src="{{ url_for('static', filename='img/items/shields/shield' + eq['shield']|string + '.png') }}">
             </div>
             <div class="hands">
-                <img src="{{ url_for('static', filename='img/items/armor/hands' + eq['armor']|string + '.png') }}">
+                <img src="{{ url_for('static', filename='img/items/armors/hands' + eq['armor']|string + '.png') }}">
             </div>
         </div>
+    </div>
+    <div class="items-list">
+    <ul>
+        <li>
 
+                    <div>
+                    <p><img src="{{ url_for('static', filename="/img/items/potions/health.png") }}"></p>
+                    <p>{{ eq['hPotions'] }}
+                        <form style="display: inline-block;" method="POST">
+                        <input type="hidden" name="action" value="more">
+                        <button type="submit" name="itemType" value="hPotions">
+                        +
+                        </button>
+                        </form>
+                        <form style="display: inline-block;" method="POST">
+                        <input type="hidden" name="action" value="less">
+                        <button type="submit" name="itemType" value="hPotions">
+                        -
+                        </button>
+                        </form>
+                        </p>
+                    </div>
+                    <div>
+                        <p><img src="{{ url_for('static', filename="/img/items/potions/stamina.png") }}"></p>
+                        <p>{{ eq['sPotions'] }}
+                        <form style="display: inline-block;" method="POST">
+                        <input type="hidden" name="action" value="more">
+                        <button type="submit" name="itemType" value="sPotions">
+                        +
+                        </button>
+                        </form>
+                        <form style="display: inline-block;" method="POST">
+                        <input type="hidden" name="action" value="less">
+                        <button type="submit" name="itemType" value="sPotions">
+                        -
+                        </button>
+                        </form>
+                    </p>
+                    </div>
+        </li>
+    {% set types = ['','armor', 'helmet', 'weapon', 'shield'] %}
+    {% set typesTrans = ['','Zbroja', 'Hełm', 'Broń', 'Tarcza'] %}
+        {% for itemTypes in items %}
+            <li>
+            <button class="btn-toggle" id="{{'section-'+types[loop.index]  }}">
+            {{ typesTrans[loop.index] }}
+            </button>
+            </li>
+            {% for item in itemTypes %}
+                <li class="{{ 'element-'+item.itemType }}">
+                    <form method="POST">
+                        <input type="hidden" name="number" value="{{ item.id }}">
+                        <button type="submit" name="itemType" value="{{ item.itemType }}">
+                            <img src="{{ url_for('static', filename='img/items/'+item.itemType+'s/'+item.itemType|string+''+item.id|string + '.png') }}">
+                        </button>
+                    </form>
+                    {{ item.name }}
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+    </div>
+    <div class="btn-accept">
+        <a class="menuBtn" href="/edit-player?player={{player}}">Zatwierdź</a>
+    </div>
+    <script>
+function toggle(elements){
+    for(element in elements){
+                     if(elements[element].style.display=="none"){
+                         elements[element].style.display = "block";
+                     }
+                     else{
+                         elements[element].style.display = "none";
+                     }
+                 }
+}
+
+            document.getElementById("section-armor").addEventListener("click", function(){
+                var elements = document.getElementsByClassName("element-armor")
+                toggle(elements)
+            });
+
+            document.getElementById("section-helmet").addEventListener("click", function(){
+                var elements = document.getElementsByClassName("element-helmet")
+                toggle(elements)
+            });
+
+            document.getElementById("section-weapon").addEventListener("click", function(){
+                var elements = document.getElementsByClassName("element-weapon")
+                toggle(elements)
+            });
+
+            document.getElementById("section-shield").addEventListener("click", function() {
+                var elements = document.getElementsByClassName("element-shield")
+                toggle(elements)
+            });
+document.getElementById("section-armor").click();
+document.getElementById("section-helmet").click();
+document.getElementById("section-weapon").click();
+document.getElementById("section-shield").click();
+    </script>
 
 
 {% endblock content %}

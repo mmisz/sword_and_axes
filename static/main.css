@@ -35,6 +35,7 @@ h1{
     margin-bottom: 30px;
     margin-top: 15px;
 }
+
 #menu a{
     background-color: lightgray;
     border: 3px solid black;
@@ -172,4 +173,38 @@ h1{
 }
 .character img{
     width:inherit;
+}
+.charackter-items{
+  float:right;
+}
+.items-list{
+    height:500px;
+    overflow: scroll;
+    float: left;
+    overflow-x: hidden;
+}
+.items-list ul{
+    list-style-type: none;
+}
+.items-list img{
+    width: 100px;
+}
+.btn-accept{
+    clear: both;
+}
+.element-armor{
+    display: none;
+}
+.element-helmet{
+    display: none;
+}
+.element-weapon{
+    display: none;
+}
+.element-shield{
+    display: none;
+}
+.btn-toggle{
+    font-size: medium;
+    width:150px;
 }

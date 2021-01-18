@@ -1,16 +1,16 @@
 from typing import List
 
 from flask import Flask, render_template, url_for, request, redirect
-import classes
 
 import sys
-
-from classes import Viking
+from flask import session
+from classes import Viking, Armoury
 
 app = Flask(__name__)
+app.secret_key = 'app secret key'
 
 global hotSeatPlayers
-hotSeatPlayers: List[Viking] = [classes.Viking(), classes.Viking()]
+hotSeatPlayers: List[Viking] = [Viking(), Viking()]
 hotSeatStatus = [0,0]
 
 @app.route('/')
@@ -33,7 +33,15 @@ def hotseat():
     return render_template('hotseat.html', h1='Gracz kontra Gracz', status=hotSeatStatus)
 @app.route('/pvp')
 def pvp():
-    return render_template('pvp.html', h1='Walka')
+    if 'counter' in session:
+        session['turn-counter'] += 1
+    else:
+        session['turn-counter'] = 0
+    if session['turn-counter'] % 2 == 0:
+        turn = 0
+    else:
+        turn = 1
+    return render_template('pvp.html', h1="Tura - "+hotSeatPlayers[turn].name, players = hotSeatPlayers)
 
 @app.route('/edit-player', methods=['GET', 'POST'])
 def edit_player():
@@ -103,7 +111,7 @@ def items():
     player = request.args.get('player', None)
     playerNumber = int(player) - 1
     viking = hotSeatPlayers[playerNumber]
-    armoury = classes.Armoury()
+    armoury = Armoury()
     items = armoury.getItems()
     if request.method == 'POST':
         form = request.form

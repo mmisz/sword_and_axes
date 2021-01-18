@@ -53,16 +53,19 @@ class Viking:
         }
         self.armoury = Armoury()
         self.maxHitpoints = 10 + self.attributes['vitality'] + int(self.attributes['strength']/3)
-        #self.maxDmg =
+    def setHitpoints(self):
+        self.maxHitpoints = 10 + self.attributes['vitality'] + int(self.attributes['strength']/3)
 
     def setName(self, name):
         self.name = name
 
     def attrU(self, attr: str, points: int):
         self.attributes[attr] += points
+        self.setHitpoints()
 
     def attrD(self, attr: str, points: int):
         self.attributes[attr] -= points
+        self.setHitpoints()
 
     def getattr(self, item: str):
         return self.attributes[item]

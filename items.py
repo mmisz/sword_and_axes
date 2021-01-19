@@ -62,11 +62,11 @@ def makeWeapon():
     prices = [0, 2, 4, 5, 6,
               7, 8, 9, 12, 13,
               14, 16, 19, 15]
-    damages = [0, 2, 5, 6, 10,
+    damages = [1, 2, 5, 6, 10,
                3, 10, 11, 15, 5,
                15, 17, 20, 6]
     weaponClasses = ['dagger', 'mace', 'sword', 'axe', 'tHanded']
-    giveWeaponClass = [0, 0, 2, 3, 4,
+    giveWeaponClass = [1, 0, 2, 3, 4,
                        1, 2, 3, 4, 1,
                        2, 3, 4, 0]
 

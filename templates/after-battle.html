@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="character" style="width: 400px;">
+            <div class="character-body">
+                <img src="{{ url_for('static', filename='img/character/body' + appearance['body']|string + '.png') }}">
+            </div>
+            {% set dangerHelmetsHair = [1, 2, 4] %}
+            {% set dangerHelmetsBeard = [1, 4] %}
+            {% if not eq['helmet'] in dangerHelmetsHair %}
+            <div class="hair">
+                <img src="{{ url_for('static', filename='img/character/hair' + appearance['hair']|string + '.png') }}">
+            </div>
+            {% endif %}
+            {% if not eq['helmet'] in dangerHelmetsBeard %}
+            <div class="beard">
+                <img src="{{ url_for('static', filename='img/character/beard' + appearance['beard']|string + '.png') }}">
+            </div>
+            {% endif %}
+            <div class="face">
+                <img src="{{ url_for('static', filename='img/character/face' + appearance['face']|string + '.png') }}">
+            </div>
+            <div class="helmet">
+                <img src="{{ url_for('static', filename='img/items/helmets/helmet' + eq['helmet']|string + '.png') }}">
+            </div>
+            <div class="cloth">
+                <img src="{{ url_for('static', filename='img/items/armors/armor' + eq['armor']|string + '.png') }}">
+            </div>
+            <div class="weapon">
+                <img src="{{ url_for('static', filename='img/items/weapons/weapon' + eq['weapon']|string + '.png') }}">
+            </div>
+            <div class="shield">
+                <img src="{{ url_for('static', filename='img/items/shields/shield' + eq['shield']|string + '.png') }}">
+            </div>
+            <div class="hands">
+                <img src="{{ url_for('static', filename='img/items/armors/hands' + eq['armor']|string + '.png') }}">
+            </div>
+        </div>
+ <div class="btn-accept">
+     <a class="menuBtn" href="/home">Powrót</a>
+ </div>
+{% endblock content %}

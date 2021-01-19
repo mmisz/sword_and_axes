@@ -9,13 +9,16 @@ from classes import Viking, Armoury
 app = Flask(__name__)
 app.secret_key = 'app secret key'
 
-global hotSeatPlayers
-hotSeatPlayers: List[Viking] = [Viking(), Viking()]
-hotSeatStatus = [0,0]
+
+
 
 @app.route('/')
 @app.route('/home')
 def home():
+    global hotSeatPlayers
+    hotSeatPlayers = [Viking(), Viking()]
+    global hotSeatStatus
+    hotSeatStatus = [0, 0]
     return render_template('home.html')
 
 
@@ -28,21 +31,51 @@ def about():
 def hotseat():
     if request.method == 'POST':
         form = request.form
-        if form['action'] == 'fight' and hotSeatStatus==[1, 1]:
+        if form['action'] == 'fight' and hotSeatStatus == [1, 1]:
+            if 'turn-counter' not in session:
+                session['turn-counter'] = 0
+            else:
+                session['turn-counter'] = 0
             return redirect("/pvp")
     return render_template('hotseat.html', h1='Gracz kontra Gracz', status=hotSeatStatus)
-@app.route('/pvp')
+@app.route('/pvp', methods=['GET', 'POST'])
 def pvp():
-    if 'counter' in session:
-        session['turn-counter'] += 1
-    else:
-        session['turn-counter'] = 0
+
+    turn = session["turn-counter"] % 2
+    viking = hotSeatPlayers[turn]
+    enemyNmb = (session["turn-counter"] + 1) % 2
+    enemy = hotSeatPlayers[enemyNmb]
+
+    if request.method == 'POST':
+        form = request.form
+        if form['action'] == "start":
+            pass
+        if form['action'] == "hPotion":
+            viking.usePotion("hPotions")
+        elif form['action'] == "sPotion":
+            viking.usePotion("sPotions")
+        elif form['action'] == "light-strike":
+            viking.lightAttack(enemy)
+        elif form['action'] == "power-strike":
+            viking.strongAttack(enemy)
+        elif form['action'] == "rest":
+            viking.rest()
+
+    if viking.Hitpoints == 0:
+        return redirect("/fight-over?winner=" + str(enemyNmb))
+    elif enemy.Hitpoints == 0:
+        return redirect("/fight-over?winner=" + str(turn))
+
     if session['turn-counter'] % 2 == 0:
         turn = 0
     else:
         turn = 1
-    return render_template('pvp.html', h1="Tura - "+hotSeatPlayers[turn].name, players = hotSeatPlayers)
-
+    return render_template('pvp.html', h1="Tura - "+hotSeatPlayers[turn].name, players = hotSeatPlayers, turn = turn)
+@app.route('/fight-over', methods=['GET', 'POST'])
+def fightOver():
+    winner = int(request.args.get('winner', None))
+    viking = hotSeatPlayers[winner]
+    return render_template('after-battle.html', h1="Zwyciężył - "+viking.name, appearance=viking.appearance, eq=viking.eq)
 @app.route('/edit-player', methods=['GET', 'POST'])
 def edit_player():
     player = request.args.get('player', None)

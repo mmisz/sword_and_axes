@@ -9,7 +9,7 @@
 
 
 
-
+{{ turn }}
     <div class="grid-pvp">
       <div class="Charackter1">
             <div class="character" style="width: 300px;">
@@ -84,23 +84,23 @@
         </div>
       </div>
       <div class="stats1">
-          <h3>Życie - {{ players[0].maxHitpoints }}</h3>
+          <h3>Życie - {{ players[0].Hitpoints }}</h3>
           <div class="health-bar" data-total="1000" data-value="1000">
-            <div class="bar" style=" width: 100%;"></div>
+            <div class="bar" style=" width: {{ (players[0].Hitpoints/players[0].maxHitpoints)*100 }}%;"></div>
           </div>
-          <h3>Energia</h3>
+          <h3>Energia - {{ players[0].Stamina }}</h3>
           <div class="health-bar" data-total="1000" data-value="1000">
-            <div class="stamina-bar" style=" width: 100%;"></div>
+            <div class="stamina-bar" style=" width: {{ (players[0].Stamina/players[0].maxStamina)*100 }}%;"></div>
           </div>
       </div>
       <div class="stats2">
-          <h3>Życie - {{ players[1].maxHitpoints }}</h3>
+          <h3>Życie - {{ players[1].Hitpoints }}</h3>
           <div class="health-bar" data-total="1000" data-value="1000">
-            <div class="bar" style=" width: 100%;"></div>
+            <div class="bar" style=" width: {{ (players[1].Hitpoints/players[1].maxHitpoints)*100 }}%;"></div>
           </div>
-          <h3>Energia</h3>
+          <h3>Energia - {{ players[1].Stamina }}</h3>
           <div class="health-bar" data-total="1000" data-value="1000">
-            <div class="stamina-bar" style=" width: 100%;"></div>
+            <div class="stamina-bar" style=" width: {{ (players[1].Stamina/players[1].maxStamina)*100 }}%;"></div>
           </div>
       </div>
       <div class="name1">
@@ -117,31 +117,31 @@
       <div class="actions">
           <ul id="menu">
             <li>
-                 <button class="menuBtn actions" type="submit" value="up" name="action" form="-form">
+                 <button class="menuBtn actions" type="submit" value="light-strike" name="action" form="attack-form">
                     Lekki atak
                 </button>
             </li>
             <li>
-                <button class="menuBtn actions" type="submit" value="up" name="action" form="-form">
+                <button class="menuBtn actions" type="submit" value="power-strike" name="action" form="attack-form">
                     Mocny atak
                 </button>
             </li>
             <li>
-                <button class="menuBtn actions" type="submit" value="up" name="action" form="-form">
+                <button class="menuBtn actions" type="submit" value="rest" name="action" form="rest-form">
                     Odpoczynek
                 </button>
             </li>
             <li>
-                <button class="menuBtn actions" type="submit" value="up" name="action" form="-form">
+                <button class="menuBtn actions" type="submit" value="hPotion" name="action" form="potion-form">
                     <img src="{{ url_for('static', filename="/img/items/potions/health.png") }}">
-                    {{ 0 }}
+                    {{ players[turn].eq['hPotions'] }}
                 </button>
 
             </li>
             <li>
-                <button class="menuBtn actions" type="submit" value="up" name="action" form="-form">
+                <button class="menuBtn actions" type="submit" value="sPotion" name="action" form="potion-form">
                     <img src="{{ url_for('static', filename="/img/items/potions/stamina.png") }}">
-                    {{ 0 }}
+                    {{ players[turn].eq['sPotions'] }}
                 </button>
 
             </li>
@@ -153,5 +153,7 @@
             <a class="menuBtn" href="/home">Przerwij</a>
         </div>
     </div>
-
+    <form method="POST" id="potion-form"></form>
+    <form method="POST" id="attack-form"></form>
+    <form method="POST" id="rest-form"></form>
 {% endblock content %}

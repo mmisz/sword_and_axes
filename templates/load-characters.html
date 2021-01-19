@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% set dangerHelmetsHair = [1, 2, 4] %}
+    {% set dangerHelmetsBeard = [1, 4] %}
+    {% set appearance1 = players[0].appearance %}
+    {% set appearance2 = players[1].appearance %}
+    {% set eq1 = players[0].eq %}
+    {% set eq2 = players[1].eq %}
+
+
+
+{{ turn }}
+    <div class="grid-pvp">
+      <div class="Charackter1">
+            <div class="character" style="width: 300px;">
+            <div class="character-body">
+                <img src="{{ url_for('static', filename='img/character/body' + appearance1['body']|string + '.png') }}">
+            </div>
+
+            {% if not eq1['helmet'] in dangerHelmetsHair %}
+            <div class="hair">
+                <img src="{{ url_for('static', filename='img/character/hair' + appearance1['hair']|string + '.png') }}">
+            </div>
+            {% endif %}
+            {% if not eq1['helmet'] in dangerHelmetsBeard %}
+            <div class="beard">
+                <img src="{{ url_for('static', filename='img/character/beard' + appearance1['beard']|string + '.png') }}">
+            </div>
+            {% endif %}
+            <div class="face">
+                <img src="{{ url_for('static', filename='img/character/face' + appearance1['face']|string + '.png') }}">
+            </div>
+            <div class="helmet">
+                <img src="{{ url_for('static', filename='img/items/helmets/helmet' + eq1['helmet']|string + '.png') }}">
+            </div>
+            <div class="cloth">
+                <img src="{{ url_for('static', filename='img/items/armors/armor' + eq1['armor']|string + '.png') }}">
+            </div>
+            <div class="weapon">
+                <img src="{{ url_for('static', filename='img/items/weapons/weapon' + eq1['weapon']|string + '.png') }}">
+            </div>
+            <div class="shield">
+                <img src="{{ url_for('static', filename='img/items/shields/shield' + eq1['shield']|string + '.png') }}">
+            </div>
+            <div class="hands">
+                <img src="{{ url_for('static', filename='img/items/armors/hands' + eq1['armor']|string + '.png') }}">
+            </div>
+        </div>
+      </div>
+     <div class="Charackter2">
+            <div class="character" style="width: 300px;">
+            <div class="character-body">
+                <img src="{{ url_for('static', filename='img/character/body' + appearance2['body']|string + '.png') }}">
+            </div>
+
+            {% if not eq1['helmet'] in dangerHelmetsHair %}
+            <div class="hair">
+                <img src="{{ url_for('static', filename='img/character/hair' + appearance2['hair']|string + '.png') }}">
+            </div>
+            {% endif %}
+            {% if not eq1['helmet'] in dangerHelmetsBeard %}
+            <div class="beard">
+                <img src="{{ url_for('static', filename='img/character/beard' + appearance2['beard']|string + '.png') }}">
+            </div>
+            {% endif %}
+            <div class="face">
+                <img src="{{ url_for('static', filename='img/character/face' + appearance2['face']|string + '.png') }}">
+            </div>
+            <div class="helmet">
+                <img src="{{ url_for('static', filename='img/items/helmets/helmet' + eq2['helmet']|string + '.png') }}">
+            </div>
+            <div class="cloth">
+                <img src="{{ url_for('static', filename='img/items/armors/armor' + eq2['armor']|string + '.png') }}">
+            </div>
+            <div class="weapon">
+                <img src="{{ url_for('static', filename='img/items/weapons/weapon' + eq2['weapon']|string + '.png') }}">
+            </div>
+            <div class="shield">
+                <img src="{{ url_for('static', filename='img/items/shields/shield' + eq2['shield']|string + '.png') }}">
+            </div>
+            <div class="hands">
+                <img src="{{ url_for('static', filename='img/items/armors/hands' + eq2['armor']|string + '.png') }}">
+            </div>
+        </div>
+      </div>
+      <div class="stats1">
+          <h3>Życie - {{ players[0].Hitpoints }}</h3>
+          <div class="health-bar" data-total="1000" data-value="1000">
+            <div class="bar" style=" width: {{ (players[0].Hitpoints/players[0].maxHitpoints)*100 }}%;"></div>
+          </div>
+          <h3>Energia - {{ players[0].Stamina }}</h3>
+          <div class="health-bar" data-total="1000" data-value="1000">
+            <div class="stamina-bar" style=" width: {{ (players[0].Stamina/players[0].maxStamina)*100 }}%;"></div>
+          </div>
+      </div>
+      <div class="stats2">
+          <h3>Życie - {{ players[1].Hitpoints }}</h3>
+          <div class="health-bar" data-total="1000" data-value="1000">
+            <div class="bar" style=" width: {{ (players[1].Hitpoints/players[1].maxHitpoints)*100 }}%;"></div>
+          </div>
+          <h3>Energia - {{ players[1].Stamina }}</h3>
+          <div class="health-bar" data-total="1000" data-value="1000">
+            <div class="stamina-bar" style=" width: {{ (players[1].Stamina/players[1].maxStamina)*100 }}%;"></div>
+          </div>
+      </div>
+      <div class="name1">
+          <h2>
+              {{ players[0].name }}
+          </h2>
+      </div>
+      <div class="name2" style="text-align: right;">
+          <h2>
+              {{ players[1].name }}
+          </h2>
+      </div>
+      <div class="player-turn"></div>
+      <div class="actions">
+          <ul id="menu">
+            <li>
+                 <button class="menuBtn actions" type="submit" value="light-strike" name="action" form="attack-form">
+                    Lekki atak
+                </button>
+            </li>
+            <li>
+                <button class="menuBtn actions" type="submit" value="power-strike" name="action" form="attack-form">
+                    Mocny atak
+                </button>
+            </li>
+            <li>
+                <button class="menuBtn actions" type="submit" value="rest" name="action" form="rest-form">
+                    Odpoczynek
+                </button>
+            </li>
+            <li>
+                <button class="menuBtn actions" type="submit" value="hPotion" name="action" form="potion-form">
+                    <img src="{{ url_for('static', filename="/img/items/potions/health.png") }}">
+                    {{ players[turn].eq['hPotions'] }}
+                </button>
+
+            </li>
+            <li>
+                <button class="menuBtn actions" type="submit" value="sPotion" name="action" form="potion-form">
+                    <img src="{{ url_for('static', filename="/img/items/potions/stamina.png") }}">
+                    {{ players[turn].eq['sPotions'] }}
+                </button>
+
+            </li>
+          </ul>
+      </div>
+    </div>
+    <div style="text-align: center">
+        <div class="btn-accept">
+            <a class="menuBtn" href="/home">Przerwij</a>
+        </div>
+    </div>
+    <form method="POST" id="potion-form"></form>
+    <form method="POST" id="attack-form"></form>
+    <form method="POST" id="rest-form"></form>
+{% endblock content %}

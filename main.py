@@ -1,11 +1,12 @@
 from typing import List
 
 from flask import Flask, render_template, url_for, request, redirect
-
+import pickle
 import sys
 from flask import session
 from classes import Viking, Armoury
-
+from secrets import token_hex
+from os import listdir, remove, path
 app = Flask(__name__)
 app.secret_key = 'app secret key'
 
@@ -32,6 +33,9 @@ def hotseat():
     if request.method == 'POST':
         form = request.form
         if form['action'] == 'fight' and hotSeatStatus == [1, 1]:
+            hotSeatPlayers[0].setHitpoints()
+            hotSeatPlayers[1].setHitpoints()
+            session['attack'] = -1
             if 'turn-counter' not in session:
                 session['turn-counter'] = 0
             else:
@@ -40,7 +44,6 @@ def hotseat():
     return render_template('hotseat.html', h1='Gracz kontra Gracz', status=hotSeatStatus)
 @app.route('/pvp', methods=['GET', 'POST'])
 def pvp():
-
     turn = session["turn-counter"] % 2
     viking = hotSeatPlayers[turn]
     enemyNmb = (session["turn-counter"] + 1) % 2
@@ -102,7 +105,39 @@ def name():
             return redirect("/edit-player?player=" + str(playerNumber + 1))
     return render_template('name.html', h1='Wybierz nazwę', player=playerNumber + 1, name=viking.name)
 
+@app.route('/save', methods=["POST", "GET"])
+def save():
+    player = int(request.args.get('player', None))-1
+    viking = hotSeatPlayers[player]
+    fileName = token_hex(8)
+    with open("./characters/"+fileName+".pkl", "wb") as file:
+        pickle.dump(viking, file, pickle.HIGHEST_PROTOCOL)
 
+    return redirect("/hotseat")
+@app.route('/load', methods=["POST", "GET"])
+def load():
+    player = int(request.args.get('player', None)) - 1
+    files = listdir("./characters")
+    characters = []
+    for file in files:
+        f = open("./characters/" + file, "rb")
+        tViking = pickle.load(f)
+        characters.append(tViking)
+        f.close()
+    if request.method == 'POST':
+        form = request.form
+        if "name" in form:
+            newName = form["name"]
+            f = open("./characters/"+newName, "rb")
+            hotSeatPlayers[player] = pickle.load(f)
+            f.close()
+            return redirect("/edit-player?player=" + str(player+1))
+        elif "delete" in form:
+            if path.exists("./characters/"+form["delete"]):
+                remove("./characters/"+form["delete"])
+                f.close()
+            return redirect("/load?player="+str(player+1))
+    return render_template('load-characters.html', h1='Wybierz postać', files=files, characters=characters, player=player+1)
 @app.route('/attributes', methods=['GET', 'POST'])
 def attributes(basePoints=10):
     player = request.args.get('player', None)

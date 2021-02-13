@@ -1,6 +1,8 @@
 import sys
 from flask import session
 import items
+from math import ceil, floor
+import random
 
 class Armoury:
     def __init__(self):
@@ -53,14 +55,14 @@ class Viking:
             'sPotions': 0
         }
         self.armoury = Armoury()
-        self.maxHitpoints = 10 + self.attributes['vitality'] + int(self.attributes['strength']/3)
-        self.Hitpoints = 10 + self.attributes['vitality'] + int(self.attributes['strength'] / 3)
+        self.maxHitpoints = (10 + self.attributes['vitality'] + ceil(self.attributes['strength']/3))*10
+        self.Hitpoints = (10 + self.attributes['vitality'] + ceil(self.attributes['strength']/3))*10
         self.maxStamina = 10 + self.attributes['stamina'] + int(self.attributes['agility'] / 3)
         self.Stamina = 10 + self.attributes['stamina'] + int(self.attributes['agility'] / 3)
 
     def setHitpoints(self):
-        self.maxHitpoints = 10 + self.attributes['vitality'] + int(self.attributes['strength']/3)
-        self.Hitpoints = 10 + self.attributes['vitality'] + int(self.attributes['strength'] / 3)
+        self.maxHitpoints = (10 + self.attributes['vitality'] + ceil(self.attributes['strength']/3))*10
+        self.Hitpoints = (10 + self.attributes['vitality'] + ceil(self.attributes['strength'] / 3))*10
     def setStamina(self):
         self.maxStamina = 10 + self.attributes['stamina'] + int(self.attributes['agility']/3)
         self.Stamina = 10 + self.attributes['stamina'] + int(self.attributes['agility'] / 3)
@@ -196,22 +198,22 @@ class Viking:
         armorValue = 1
         armor = self.getArmor()
         armorValue += armor.baseDefence
-        if armor.aClass == 'light armor':
-            armorValue += round(self.getattr('agility') / 2)
+        '''if armor.aClass == 'light armor':
+            armorValue += floor(self.getattr('agility') / 2)
         elif armor.aClass == 'heavy armor':
-            armorValue += round(self.getattr('strength') / 3)
+            armorValue += floor(self.getattr('strength') / 3)'''
         armor = self.getHelmet()
         armorValue += armor.baseDefence
-        if armor.aClass == 'light armor':
-            armorValue += round(self.getattr('agility') / 2)
+        '''if armor.aClass == 'light armor':
+            armorValue += floor(self.getattr('agility') / 2)
         elif armor.aClass == 'heavy armor':
-            armorValue += round(self.getattr('strength') / 3)
+            armorValue += floor(self.getattr('strength') / 3)'''
         armor = self.getShield()
         armorValue += armor.baseDefence
-        if armor.aClass == 'light armor':
-            armorValue += round(self.getattr('agility') / 2)
+        '''if armor.aClass == 'light armor':
+            armorValue += floor(self.getattr('agility') / 2)
         elif armor.aClass == 'heavy armor':
-            armorValue += round(self.getattr('strength') / 3)
+            armorValue += floor(self.getattr('strength') / 3)'''
 
         return armorValue
     def morePotion(self, type: str):
@@ -227,28 +229,48 @@ class Viking:
     def usePotion(self, type: str):
         if self.eq[type] > 0:
             session['turn-counter'] += 1
+            session['attack'] = -1
             self.eq[type] -= 1
             if type[0] == "h":
-                self.Hitpoints += 5
+                self.Hitpoints += 10
                 if self.Hitpoints > self.maxHitpoints:
                     self.Hitpoints = self.maxHitpoints
             if type[0] == "s":
-                self.Stamina += 5
+                self.Stamina += 6
                 if self.Stamina > self.maxStamina:
                     self.Stamina = self.maxStamina
+    def tryBlock(self, attackAbilityValue, limit):
+        chance = random.randint(0, limit)
+        if self.getDefence()+self.getShield().blockChance-attackAbilityValue > chance:
+            return True
+        else:
+            return False
+    def tryDoge(self, attackAbilityValue, limit):
+        chance = random.randint(0, limit)
+        multiplier = 1
+        if self.getShield().aClass == "light armor":
+            multiplier += 1
+        if self.getHelmet().aClass == "light armor":
+            multiplier += 1
+        if self.getArmor().aClass == "light armor":
+            multiplier += 1
+        if self.getattr("agility")*multiplier - attackAbilityValue > chance:
+            return True
+        else:
+            return False
     def getDamage(self):
         weapon = self.getWeapon()
         dmg = weapon.baseAttack
         if weapon.wClass == 'tHanded':
-            dmg += self.getattr('strength')
+            dmg += self.getattr('strength') * 16
         if weapon.wClass == 'mace':
-            dmg += self.getattr('strength')*1.5
+            dmg += self.getattr('strength') * 20
         if weapon.wClass == 'dagger':
-            dmg += self.getattr('agility') * 2.5
+            dmg += self.getattr('agility') * 18
         elif weapon.wClass == 'sword':
-            dmg += round(self.getattr('agility') / 1.5)
+            dmg += ceil(self.getattr('agility')) * 15
         elif weapon.wClass == 'axe':
-            dmg += round(self.getattr('strength') / 1.5)
+            dmg += ceil(self.getattr('strength')) * 15
         return dmg
 
     def strongDmg(self):
@@ -267,8 +289,15 @@ class Viking:
             print("--------------------------------", file=sys.stderr)
             print("defence - "+str(defence), file=sys.stderr)
             print("dmg - "+str(damage), file=sys.stderr)
-            enemy.takeDamage(round(damage / defence))
+            if enemy.tryBlock(self.getattr("strength"), 100):
+                session['attack'] = 'block'
+            elif enemy.tryDoge(self.getattr("strength"), 100):
+                session['attack'] = 'doge'
+            else:
+                enemy.takeDamage(ceil(damage / defence))
+                session['attack'] = ceil(damage / defence)
             session['turn-counter'] += 1
+
     def lightAttack(self, enemy):
         if self.Stamina >= 3:
             damage = self.lightDmg()
@@ -277,7 +306,13 @@ class Viking:
             print("--------------------------------", file=sys.stderr)
             print("defence - " + str(defence), file=sys.stderr)
             print("dmg - " + str(damage), file=sys.stderr)
-            enemy.takeDamage(round(damage / defence))
+            if enemy.tryBlock(self.getattr("agility"), 120):
+                session['attack'] = 'block'
+            elif enemy.tryDoge(self.getattr("agility"), 120):
+                session['attack'] = 'doge'
+            else:
+                enemy.takeDamage(ceil(damage / defence))
+                session['attack'] = ceil(damage / defence)
             session['turn-counter'] += 1
 
     def rest(self):
@@ -290,4 +325,5 @@ class Viking:
         else:
             self.Hitpoints += 1
         session['turn-counter'] += 1
+        session['attack'] = 'Zzz'
 

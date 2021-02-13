@@ -7,9 +7,6 @@
     {% set eq1 = players[0].eq %}
     {% set eq2 = players[1].eq %}
 
-
-
-{{ turn }}
     <div class="grid-pvp">
       <div class="Charackter1">
             <div class="character" style="width: 300px;">
@@ -53,12 +50,12 @@
                 <img src="{{ url_for('static', filename='img/character/body' + appearance2['body']|string + '.png') }}">
             </div>
 
-            {% if not eq1['helmet'] in dangerHelmetsHair %}
+            {% if not eq2['helmet'] in dangerHelmetsHair %}
             <div class="hair">
                 <img src="{{ url_for('static', filename='img/character/hair' + appearance2['hair']|string + '.png') }}">
             </div>
             {% endif %}
-            {% if not eq1['helmet'] in dangerHelmetsBeard %}
+            {% if not eq2['helmet'] in dangerHelmetsBeard %}
             <div class="beard">
                 <img src="{{ url_for('static', filename='img/character/beard' + appearance2['beard']|string + '.png') }}">
             </div>
@@ -104,12 +101,38 @@
           </div>
       </div>
       <div class="name1">
-          <h2>
+          <h2 style="display: inline-block">
               {{ players[0].name }}
           </h2>
+          <div class="fight-effect" style="display: inline-block;">
+              {% if turn == 0 and session['attack'] != -1 %}
+                  {% if session['attack'] == "block" %}
+                      <span class="block">Blok</span>
+                  {% elif session['attack'] == "doge" %}
+                      <span class="doge">Unik</span>
+                  {% elif session['attack'] != "Zzz" %}
+                      <span class="attack">{{ session['attack'] }}</span>
+                  {% endif %}
+              {% elif turn == 1 and session['attack'] == "Zzz" %}
+                  <span class="rest">Zzz</span>
+              {% endif %}
+          </div>
       </div>
       <div class="name2" style="text-align: right;">
-          <h2>
+          <div class="fight-effect" style="display: inline-block;">
+              {% if turn == 1 and session['attack'] != -1 %}
+                  {% if session['attack'] == "block" %}
+                      <span class="block">Blok</span>
+                  {% elif session['attack'] == "doge" %}
+                      <span class="doge">Unik</span>
+                  {% elif session['attack'] != "Zzz" %}
+                      <span class="attack">{{ session['attack'] }}</span>
+                  {% endif %}
+              {% elif turn == 0 and session['attack'] == "Zzz" %}
+                  <span class="rest">Zzz</span>
+              {% endif %}
+          </div>
+          <h2 style="display:inline-block;">
               {{ players[1].name }}
           </h2>
       </div>

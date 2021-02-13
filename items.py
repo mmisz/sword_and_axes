@@ -62,9 +62,9 @@ def makeWeapon():
     prices = [0, 2, 4, 5, 6,
               7, 8, 9, 12, 13,
               14, 16, 19, 15]
-    damages = [1, 2, 5, 6, 10,
-               3, 10, 11, 15, 5,
-               15, 17, 20, 6]
+    damages = [8, 40, 80, 84, 160,
+               48, 160, 180, 240, 80,
+               240, 250, 300, 96]
     weaponClasses = ['dagger', 'mace', 'sword', 'axe', 'tHanded']
     giveWeaponClass = [1, 0, 2, 3, 4,
                        1, 2, 3, 4, 1,
@@ -81,7 +81,7 @@ def makeShield():
     giveClass = [0, 1, 1, 1, 0]
     prices = [0, 5, 6, 8, 4]
     defences = [0, 3, 4, 6, 1]
-    chances = [0, 10, 15, 20, 25]
+    chances = [0, 10, 15, 20, 20]
 
     for i in range(len(names)):
         shield = Shield(names[i], prices[i], defences[i], i, armorClasses[giveClass[i]], chances[i], 'shield')

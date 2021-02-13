@@ -259,3 +259,27 @@ h1{
   height: 10px;
   position: relative;
 }
+.fight-effect span{
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 50%;
+    display: block;
+    padding: 10px
+}
+.block{
+    background-color: lightsteelblue;
+    color: black;
+}
+.doge{
+    background-color: seagreen;
+    color: lightgray;
+}
+.attack{
+    width:30px;
+    color:white;
+    background-color: red;
+}
+.rest{
+    background-color: lightsteelblue;
+    color: darkblue;
+}
